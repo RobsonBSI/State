@@ -64,4 +64,35 @@ class PessoaTest {
         assertTrue(pessoa.namorando());
         assertEquals(StatusNamorando.getInstance(), pessoa.getStatus());
     }
+    @Test
+    public void StatusViuvoParaNamorando() {
+        pessoa.setStatus(StatusViuvo.getInstance());
+        pessoa.namorando();
+        assertEquals("Relacionamento Serio",pessoa.getNomeStaus());
+    }
+    @Test
+    public void StatusSolteiroParaNamorando() {
+        pessoa.setStatus(StatusSolteiro.getInstance());
+        pessoa.namorando();
+        assertEquals("Relacionamento Serio",pessoa.getNomeStaus());
+    }
+    @Test
+    public void StatusDivorciadoParaNamorando() {
+        pessoa.setStatus(StatusDivorciado.getInstance());
+        pessoa.namorando();
+        assertEquals("Relacionamento Serio",pessoa.getNomeStaus());
+    }
+    @Test
+    public void StatusNamorandoParaCasado() {
+        pessoa.setStatus(StatusNamorando.getInstance());
+        pessoa.casado();
+        assertEquals("Casado",pessoa.getNomeStaus());
+    }
+
+    @Test
+    public void StatusCasadoParaViuvo() {
+        pessoa.setStatus(StatusCasado.getInstance());
+        pessoa.viuvo();
+        assertEquals("Viuvo",pessoa.getNomeStaus());
+    }
 }
